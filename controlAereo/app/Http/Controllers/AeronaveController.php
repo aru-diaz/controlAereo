@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class AeronaveController extends Controller
 {
+    //Para listar la lisa de aeronaves
+    public function listar(){
+        $data['aeronaves'] = Aeronave::paginate(5);
+        return view('lista',$data);
+    }
+
     //Para guardar la informacion de la aeronave
     public function guardar(Request $request)
     {

@@ -18,4 +18,4 @@ Route::get('/', function () {
 });
 
 Route::post('/guardar','App\Http\Controllers\AeronaveController@guardar')->name('guardar');
-
+Route::get('/','App\Http\Controllers\AeronaveController@listar');

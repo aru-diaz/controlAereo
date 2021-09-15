@@ -1,6 +1,40 @@
 @extends('index')
 <h1>Hola mundo desde la pagina de lista :D</h1>
 
+<!-- Lista de aeronaves -->
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h2 class="text-center mb-5">Aeronaves listadas</h2>
+            <table class="table table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>TIPO</th>
+                        <th>TAMAÑO</th>
+                        <th>ESTATUS</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($aeronaves as $aeronave)
+                    <tr>
+                        <th>{{ $aeronave->AERONAVE_ID}}</th>
+                        <th>{{ $aeronave->AERONAVE_TIPO}}</th>
+                        <th>{{ $aeronave->AERONAVE_TAMANIO}}</th>
+                        <th>
+                           
+                        </th>
+                        <th></th>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" id="agregar" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Agregar aeronave
