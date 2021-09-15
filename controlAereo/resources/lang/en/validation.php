@@ -137,8 +137,15 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'aeronave_tipo' => [
+            'required' => 'Debe seleccionar un tipo de aeronave valido',
+            'string' => 'Debe seleccionar un tipo de aeronave valido',
+            'min:3' => 'Debe seleccionar un tipo de aeronave valido'
+        ],
+        'aeronave_tamanio' => [
+            'required' => 'Debe seleccionar un tipo de aeronave valido',
+            'string' => 'Debe seleccionar un tipo de aeronave valido',
+            'min:3' => 'Debe seleccionar un tipo de aeronave valido'
         ],
     ],
 
