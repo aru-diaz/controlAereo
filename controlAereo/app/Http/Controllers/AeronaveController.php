@@ -32,6 +32,6 @@ class AeronaveController extends Controller
         Aeronave::insert($aeronaveData);
 
 
-        return "Se guardo algo creo";
+        return back()->with('aeronaveGuardada','La aeronave se registro con exito!');
     }
 }

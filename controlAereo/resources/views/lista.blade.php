@@ -2,12 +2,13 @@
 <h1>Hola mundo desde la pagina de lista :D</h1>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
+<button type="button" class="btn btn-primary" id="agregar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Agregar aeronave
 </button>
 
-<!-- Modal -->
+<!-- Modal para agregar una nueva aeronave -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -22,7 +23,7 @@
                         @foreach($errors->all() as $error)
 
                         <li> {{ $error }} </li>
-                        
+
                         @endforeach
                     </ul>
                 </div>
@@ -62,3 +63,39 @@
         </div>
     </div>
 </div>
+
+<!-- Modal succes! -->
+<a data-bs-toggle="modal" data-bs-target="#modalSucces" id="completo"></a>
+<!-- Modal -->
+<div class="modal fade" id="modalSucces" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Aeronave registrada!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                {{session('aeronaveGuardada')}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Continuar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Validacion de modales -->
+@if($errors->any())
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        document.getElementById("agregar").click();
+    });
+</script>
+@endif
+@if(session('aeronaveGuardada'))
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+        document.getElementById("completo").click();
+    });
+</script>
+@endif
