@@ -38,6 +38,15 @@ class AeronaveController extends Controller
         Aeronave::insert($aeronaveData);
 
 
-        return back()->with('aeronaveGuardada','La aeronave se registro con exito!');
+        return back()->with('aeronaveAccion','La aeronave se registro con exito!');
+    }
+
+    //Para eliminar aeronave 
+    public function eliminar($aeronave_id){
+        $nave = Aeronave::find($aeronave_id);
+        
+        $nave->delete();
+
+        return back()->with('aeronaveAccion','La aeronave se elimino :C');
     }
 }

@@ -14,7 +14,7 @@
 
     <style>
         .icons-personal {
-            margin: 2%;
+            margin: 1%;
         }
         .icons-personal:hover {
             transform: scale(1.3);

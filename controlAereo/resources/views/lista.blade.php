@@ -45,7 +45,10 @@
                         <th>
                             <i class="fas fa-plane icons-personal" title="Liberar"></i>
                             <i class="fas fa-edit icons-personal" title="Editar"></i>
-                            <i class="fas fa-trash-alt icons-personal" title="Borrar"></i>
+                            <form method="POST" action="{{ route('eliminar', $aeronave->AERONAVE_ID) }}" style="display:inline;">
+                                @csrf @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('¿Desea borrar esta aeronave?');"><i class="fas fa-trash-alt icons-personal" title="Borrar"></i></button>
+                            </form>
 
                         </th>
                     </tr>
@@ -53,7 +56,7 @@
                     @endforeach
                 </tbody>
             </table>
-            
+
         </div>
     </div>
 </div>
@@ -123,11 +126,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Aeronave registrada!</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Accion realizada!</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                {{session('aeronaveGuardada')}}
+                {{session('aeronaveAccion')}}
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">Continuar</button>
@@ -144,7 +147,7 @@
     });
 </script>
 @endif
-@if(session('aeronaveGuardada'))
+@if(session('aeronaveAccion'))
 <script>
     document.addEventListener("DOMContentLoaded", function(event) {
         document.getElementById("completo").click();

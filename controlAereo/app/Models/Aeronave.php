@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Aeronave extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'AERONAVE_ID';
 }

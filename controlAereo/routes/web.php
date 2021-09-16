@@ -17,5 +17,9 @@ Route::get('/', function () {
     return view('lista');
 });
 
+//Guardar
 Route::post('/guardar','App\Http\Controllers\AeronaveController@guardar')->name('guardar');
+//Listar
 Route::get('/','App\Http\Controllers\AeronaveController@listar');
+//Eliminar
+Route::delete('/eliminar/{aeronave_id}','App\Http\Controllers\AeronaveController@eliminar')->name('eliminar');
