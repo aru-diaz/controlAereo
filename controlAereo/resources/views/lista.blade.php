@@ -1,5 +1,4 @@
 @extends('index')
-<!-- Image and text -->
 <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="#" style="margin-left: 3%;">
         <i class="fas fa-plane-departure"></i>
@@ -44,7 +43,7 @@
                         </th>
                         <th>
                             <i class="fas fa-plane icons-personal" title="Liberar"></i>
-                            <i class="fas fa-edit icons-personal" title="Editar"></i>
+                            <a href="{{ route('vistaEditar',$aeronave->AERONAVE_ID) }}"><i class="fas fa-edit icons-personal" title="Editar"></i></a>
                             <form method="POST" action="{{ route('eliminar', $aeronave->AERONAVE_ID) }}" style="display:inline;">
                                 @csrf @method('DELETE')
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('¿Desea borrar esta aeronave?');"><i class="fas fa-trash-alt icons-personal" title="Borrar"></i></button>
@@ -88,7 +87,7 @@
                     <div class="mb-3">
                         <label for="aeronave_tipo" class="form-label">Tipo aeronave:</label>
                         <select class="form-control" name="aeronave_tipo" required>
-                            <option value="-1">Selecciona una opcion...</option>
+                            <option value="-1" disabled selected>Selecciona una opcion...</option>
                             <option value="emergencia">EMERGENCIA</option>
                             <option value="vip">VIP</option>
                             <option value="pasajero">PASAJERO</option>
@@ -98,7 +97,7 @@
                     <div class="mb-3">
                         <label for="aeronave_tipo" class="form-label">Tamaño aeronave:</label>
                         <select class="form-control" name="aeronave_tamanio" required>
-                            <option value="-1">Selecciona una opcion...</option>
+                            <option value="-1" disabled selected>Selecciona una opcion...</option>
                             <option value="grande">GRANDE</option>
                             <option value="chico">CHICO</option>
                         </select>

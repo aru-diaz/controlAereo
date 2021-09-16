@@ -23,3 +23,7 @@ Route::post('/guardar','App\Http\Controllers\AeronaveController@guardar')->name(
 Route::get('/','App\Http\Controllers\AeronaveController@listar');
 //Eliminar
 Route::delete('/eliminar/{aeronave_id}','App\Http\Controllers\AeronaveController@eliminar')->name('eliminar');
+//Vista editar
+Route::get('/vistaEditar/{aeronave_id}','App\Http\Controllers\AeronaveController@vistaEditar')->name('vistaEditar');
+//Editar
+Route::patch('/editar/{aeronave_id}','App\Http\Controllers\AeronaveController@editar')->name('editar');
