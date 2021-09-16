@@ -1,13 +1,24 @@
 @extends('index')
-<h1>Hola mundo desde la pagina de lista :D</h1>
+<!-- Image and text -->
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#" style="margin-left: 3%;">
+        <i class="fas fa-plane-departure"></i>
+        AERONAVES S.A. de C.V.
+    </a>
+</nav>
 
 <!-- Lista de aeronaves -->
 
-<div class="container mt-5">
+<div class="container mt-7">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-md-12">
             <h2 class="text-center mb-5">Aeronaves listadas</h2>
-            <table class="table table-bordered text-center">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-success" id="agregar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Agregar aeronave
+            </button>
+
+            <table class="table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -19,26 +30,33 @@
                 </thead>
                 <tbody>
                     @foreach($aeronaves as $aeronave)
+                    @if(!$aeronave->AERONAVE_STATUS)
                     <tr>
                         <th>{{ $aeronave->AERONAVE_ID}}</th>
                         <th>{{ $aeronave->AERONAVE_TIPO}}</th>
                         <th>{{ $aeronave->AERONAVE_TAMANIO}}</th>
                         <th>
-                           
+                            @if($aeronave->AERONAVE_STATUS)
+                            ACTIVO
+                            @ELSE
+                            INACTIVO
+                            @ENDIF
                         </th>
-                        <th></th>
+                        <th>
+                            <i class="fas fa-plane icons-personal" title="Liberar"></i>
+                            <i class="fas fa-edit icons-personal" title="Editar"></i>
+                            <i class="fas fa-trash-alt icons-personal" title="Borrar"></i>
+
+                        </th>
                     </tr>
+                    @ENDIF
                     @endforeach
                 </tbody>
             </table>
+            
         </div>
     </div>
 </div>
-
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" id="agregar" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Agregar aeronave
-</button>
 
 <!-- Modal para agregar una nueva aeronave -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

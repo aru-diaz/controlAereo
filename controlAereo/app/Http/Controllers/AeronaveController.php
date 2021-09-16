@@ -11,7 +11,7 @@ class AeronaveController extends Controller
 {
     //Para listar la lisa de aeronaves
     public function listar(){
-        $data['aeronaves'] = Aeronave::paginate(5);
+        $data['aeronaves'] = Aeronave::paginate(100);
         return view('lista',$data);
     }
 
