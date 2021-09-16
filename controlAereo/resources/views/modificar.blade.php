@@ -27,19 +27,19 @@
                     <label for="aeronave_tipo" class="form-label">Tipo aeronave:</label>
                     <select class="form-control" name="aeronave_tipo" required>
                         <option value="-1" disabled>Selecciona una opcion...</option>
-                        <option value="emergencia" @if ($aeronave->AERONAVE_TIPO === "emergencia")
+                        <option value="1" @if ($aeronave->AERONAVE_TIPO === "1")
                             selected
                             @endif
                             >EMERGENCIA</option>
-                        <option value="vip" @if ($aeronave->AERONAVE_TIPO === "vip")
+                        <option value="2" @if ($aeronave->AERONAVE_TIPO === "2")
                             selected
                             @endif
                             >VIP</option>
-                        <option value="pasajero" @if ($aeronave->AERONAVE_TIPO === "pasajero")
+                        <option value="3" @if ($aeronave->AERONAVE_TIPO === "3")
                             selected
                             @endif
                             >PASAJERO</option>
-                        <option value="cargo" @if ($aeronave->AERONAVE_TIPO === "cargo")
+                        <option value="4" @if ($aeronave->AERONAVE_TIPO === "4")
                             selected
                             @endif
                             >CARGO</option>

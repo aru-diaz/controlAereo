@@ -27,3 +27,5 @@ Route::delete('/eliminar/{aeronave_id}','App\Http\Controllers\AeronaveController
 Route::get('/vistaEditar/{aeronave_id}','App\Http\Controllers\AeronaveController@vistaEditar')->name('vistaEditar');
 //Editar
 Route::patch('/editar/{aeronave_id}','App\Http\Controllers\AeronaveController@editar')->name('editar');
+//Cambiar estado
+Route::get('/cambio/{aeronave_id}','App\Http\Controllers\AeronaveController@cambio')->name('cambio');

@@ -29,20 +29,33 @@
                 </thead>
                 <tbody>
                     @foreach($aeronaves as $aeronave)
-                    @if(!$aeronave->AERONAVE_STATUS)
+                    @if(!$aeronave->AERONAVE_ESTADO)
                     <tr>
                         <th>{{ $aeronave->AERONAVE_ID}}</th>
-                        <th>{{ $aeronave->AERONAVE_TIPO}}</th>
-                        <th>{{ $aeronave->AERONAVE_TAMANIO}}</th>
                         <th>
-                            @if($aeronave->AERONAVE_STATUS)
+                            @if ($aeronave->AERONAVE_TIPO === "1")
+                            EMERGENCIA
+                            @elseif ($aeronave->AERONAVE_TIPO === "2")
+                            VIP
+                            @elseif ($aeronave->AERONAVE_TIPO === "3")
+                            PASAJERO
+                            @else
+                            CARGO
+                            @endif
+
+                        </th>
+                        <th style="text-transform: uppercase;">{{ $aeronave->AERONAVE_TAMANIO}}</th>
+                        <th>
+                            @if($aeronave->AERONAVE_ESTADO)
                             ACTIVO
                             @ELSE
                             INACTIVO
                             @ENDIF
                         </th>
                         <th>
-                            <i class="fas fa-plane icons-personal" title="Liberar"></i>
+                            @if($loop->index === 0)
+                            <a href="{{ route('cambio',$aeronave->AERONAVE_ID) }}"><i class="fas fa-plane icons-personal" title="Liberar"></i></a>
+                            @endif
                             <a href="{{ route('vistaEditar',$aeronave->AERONAVE_ID) }}"><i class="fas fa-edit icons-personal" title="Editar"></i></a>
                             <form method="POST" action="{{ route('eliminar', $aeronave->AERONAVE_ID) }}" style="display:inline;">
                                 @csrf @method('DELETE')
@@ -88,10 +101,10 @@
                         <label for="aeronave_tipo" class="form-label">Tipo aeronave:</label>
                         <select class="form-control" name="aeronave_tipo" required>
                             <option value="-1" disabled selected>Selecciona una opcion...</option>
-                            <option value="emergencia">EMERGENCIA</option>
-                            <option value="vip">VIP</option>
-                            <option value="pasajero">PASAJERO</option>
-                            <option value="cargo">CARGO</option>
+                            <option value="1">EMERGENCIA</option>
+                            <option value="2">VIP</option>
+                            <option value="3">PASAJERO</option>
+                            <option value="4">CARGO</option>
                         </select>
                     </div>
                     <div class="mb-3">
